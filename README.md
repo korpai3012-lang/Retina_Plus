@@ -4,10 +4,6 @@
 
 > ⚠️ เป็นเครื่องมือ **ช่วยตัดสินใจ (decision-support)** ไม่ใช่การวินิจฉัยขั้นสุดท้าย ผลต้องได้รับการยืนยันโดยจักษุแพทย์
 
-| | |
-|---|---|
-| 🌐 เว็บ demo | https://retinaplus-app.hf.space/ |
-| 🎬 วิดีโอ demo | https://youtu.be/LSEzxK5R0N4 |
 
 ## Pipeline
 
@@ -48,19 +44,12 @@ notebooks/    ขั้นตอนทั้งหมดตามลำดับ
 archive/      เวอร์ชันเก่า, การทดลอง (YOLO lesion, U-Net vessel, Grad-CAM), สคริปต์ช่วยงาน, webapp เวอร์ชันแรก
 ```
 
-ตัวที่ใช้จริงคือ `hf-space/` + notebook ใน `notebooks/` ส่วน `archive/` เก็บไว้เป็นประวัติการพัฒนา (ไม่ได้ใช้ใน pipeline ปัจจุบัน)
-
 ## รัน local
 
 น้ำหนักโมเดล (`models/*.pt`) **ไม่ได้อยู่ใน repo นี้** ถ้าไม่มี แอปจะรันในโหมดสาธิต วางไฟล์ไว้ที่ `hf-space/models/`:
 `v3_best.pt`, `v4_best.pt` (classifier), `unet_lesion_v2.pt` (lesion), `quality_gate.pt` (EyeQ B0)
 
-```bash
-cd hf-space
-pip install torch==2.2.2 torchvision==0.17.2 --index-url https://download.pytorch.org/whl/cpu
-pip install -r requirements.txt
-python app.py        # http://localhost:8080
-```
+
 
 ## API
 
@@ -71,10 +60,6 @@ python app.py        # http://localhost:8080
 | `POST /explain` | form-data `image` → lesion layers + features + rationale |
 | `GET /history` · `GET /stats` | ประวัติและสรุปสถิติ |
 
-## Deploy
-
-- **Hugging Face Spaces (Docker):** ใช้ `hf-space/` เป็นรากของ Space (`app_port: 8080`)
-- **Google Cloud Run:** `gcloud run deploy retinaplus --source hf-space --memory 2Gi --cpu 2 --allow-unauthenticated`
 
 ## Tech stack
 
