@@ -38,7 +38,6 @@
 ## โครงสร้าง repo
 
 ```
-hf-space/     แอปที่ deploy จริง (Flask + PyTorch, Dockerfile, หน้าเว็บ, config/ สำหรับ calibrator และ threshold)
 notebooks/    ขั้นตอนทั้งหมดตามลำดับ: เทรน v3 / v4 → quality gate → lesion rationale → external validation
 archive/      เวอร์ชันเก่า, การทดลอง (YOLO lesion, U-Net vessel, Grad-CAM), สคริปต์ช่วยงาน, webapp เวอร์ชันแรก
 ```
